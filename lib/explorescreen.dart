@@ -44,7 +44,7 @@ class explorescreen extends StatelessWidget {
           ],
           unselectedLabelStyle: TextStyle(
             fontFamily: 'Poppins', // Menggunakan font 'Poppins' untuk label
-            fontSize: 11, // Ukuran font
+            fontSize: 12, // Ukuran font
             fontWeight: FontWeight.bold, // Cetak tebal
           ),
         ),
