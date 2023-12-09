@@ -1,85 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/DetailExplore.dart';
+import 'package:flutter_application_4/appbar.dart';
+import 'package:flutter_application_4/bottomnav.dart';
 import 'package:flutter_application_4/model/Explore.dart';
+import 'package:flutter_application_4/profile2.dart';
 import 'homescreen.dart';
 
-class explorescreen extends StatelessWidget {
-  const explorescreen({super.key});
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({Key? key}) : super(key: key);
+
+  @override
+  _ExploreScreenState createState() => _ExploreScreenState();
+}
+class _ExploreScreenState extends State<ExploreScreen> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    int _currentIndex = 1;
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed, // Mengatur tipe menjadi fixed
-          selectedItemColor:
-              const Color.fromRGBO(162, 170, 123, 1), // Warna ikon yang dipilih
-          unselectedItemColor: Colors.grey, // Warna ikon yang tidak dipilih
-          currentIndex:
-              1, // Indeks item yang aktif saat pertama kali ditampilkan
-          onTap: (index) {
-            if (index == 0) {
-              // Indeks 1 adalah "Explore"
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ScrollingScreen()));
-            }
-          },
-
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorite',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          unselectedLabelStyle: TextStyle(
-            fontFamily: 'Poppins', // Menggunakan font 'Poppins' untuk label
-            fontSize: 12, // Ukuran font
-            fontWeight: FontWeight.bold, // Cetak tebal
-          ),
-        ),
+        appBar: AppBarWidget(),
+      bottomNavigationBar: BottomNavigationWidget(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });}, context: context,),
         backgroundColor: Color.fromRGBO(236, 238, 229, 1), //
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Color.fromRGBO(236, 238, 229, 1),
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            color: Colors.black,
-            onPressed: () {
-              // Aksi yang ingin Anda tambahkan ketika ikon menu ditekan.
-            },
-          ),
-          title: Text(
-            "The SkinBuddy",
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w700, // Menggunakan font Poppins
-                fontSize: 14,
-                color: Colors.black // Mengatur cetak tebal
-                ),
-          ),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                  Icons.notifications_none_sharp), // Menggunakan font Poppins),
-              color: Colors.black,
-              onPressed: () {
-                // Aksi yang ingin Anda tambahkan ketika ikon notifikasi ditekan.
-              },
-            ),
-          ],
-        ),
+        
         body: ListView(
           children: [
             Padding(
@@ -98,15 +46,7 @@ class explorescreen extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(4.0),
                 ),
-                child: TextField(
-                  decoration: InputDecoration(
-                      prefixIconColor: Color.fromRGBO(54, 57, 41, 1),
-                      hintText: 'Search Articles',
-                      hintStyle: TextStyle(fontFamily: 'Poppins', fontSize: 14),
-                      prefixIcon: Icon(Icons.search),
-                      border: InputBorder.none),
-                  cursorColor: Color.fromRGBO(54, 57, 41, 1),
-                ),
+                
               ),
             ),
             Container(

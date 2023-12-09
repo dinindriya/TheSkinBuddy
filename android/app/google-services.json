@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "953276649290",
+    "project_id": "skinbuddy-42598",
+    "storage_bucket": "skinbuddy-42598.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953276649290:android:7e977982872ccf0bc9fbb3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH2KSl3EEHz_vwuoWjAMBn1s53cfJv7Ko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
